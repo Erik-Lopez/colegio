@@ -13,8 +13,6 @@ from clubs.models import Club
 #    TAG2 = auto()
 
 class BlogPost(models.Model):
-#    post_id
-
     title = models.CharField(max_length=30)
     content = models.TextField()
 
@@ -23,3 +21,6 @@ class BlogPost(models.Model):
     club_id   = models.ForeignKey(Club, null=True, blank=True, on_delete=models.SET_NULL)
 
     posted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

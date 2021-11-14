@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+<title>The Torrente Times</title>
+
+{% endblock %}
+
+{% block container %}
+{% load static %}
+{% for post in posts %}
+	<a href="{{ post.id }}" class="main__post--link">
+	<article class="main__post">
+		<div class="post__decoration">
+			<div class="post__decoration--line"></div>
+			<img src="{% static 'img/post.png' %}"/>
+		</div>
+		<div class="post__content">
+			<h1>{{ post.title }}</h1>
+			<p>{{ post.description }}</p>
+		</div>
+		<div class="authors">
+			<p>{{ post.author }}</p>
+		</div>
+	</article>
+	</a>
+	<br>
+{% endfor %}
+{% endblock %}
