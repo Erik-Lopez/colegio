@@ -4,10 +4,9 @@ from enum import Enum, auto
 # Django
 from django.db import models
 from users.models import User
+from clubs.models import Club
 
 # Create your models here.
-class Club(models.Model):
-    pass
 
 class Tag(Enum):
     TAG1 = 1

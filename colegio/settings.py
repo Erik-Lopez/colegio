@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     
     #Own
     'posts',
-    'users'
+    'users',
+    'clubs'
 ]
 
 MIDDLEWARE = [
