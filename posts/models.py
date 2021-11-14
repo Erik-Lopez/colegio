@@ -8,9 +8,9 @@ from clubs.models import Club
 
 # Create your models here.
 
-class Tag(Enum):
-    TAG1 = 1
-    TAG2 = auto()
+#class Tag(Enum):
+#    TAG1 = 1
+#    TAG2 = auto()
 
 class BlogPost(models.Model):
 #    post_id
