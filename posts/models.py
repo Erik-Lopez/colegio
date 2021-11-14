@@ -1,14 +1,11 @@
 # Python
-from enum import Enum
+from enum import Enum, auto
 
 # Django
 from django.db import models
+from users.models import User
 
 # Create your models here.
-
-class User(models.Model):
-    pass
-
 class Club(models.Model):
     pass
 
@@ -22,8 +19,8 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
 
-    author_id = models.ForeignKey(User, on_delete=models.SET_NULL)
+    author_id = models.ForeignKey(User, null=True, blank=False, on_delete=models.SET_NULL)
 #    tags_id   = models.ForeignKey(Tag, on_delete=models.SET_NULL)
-    club_id   = models.ForeignKey(Club, on_delete=models.SET_NULL)
+    club_id   = models.ForeignKey(Club, null=True, blank=True, on_delete=models.SET_NULL)
 
-    posted_at = models.Date
+    posted_at = models.DateTimeField(auto_now_add=True)
