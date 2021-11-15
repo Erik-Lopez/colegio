@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+<title>Crear Post</title>
+{% endblock %}
+
+{% block container %}
+<form method="POST" action="." >
+	{% csrf_token %}
+	<h1>Crear Post</h1>
+	<label for="title">
+		<span> <h2>Título</h2> </span>
+		<input type="text" id="title" placeholder="Título del post" name="title" required="true"/>
+	</label>
+	<label for="description">
+		<span> <h2>Subtítulo</h2> </span>
+		<input type="text" id="subtitle" placeholder="Breve descripción del post" name="description" required="true"/>
+	</label>
+	<label for="content">
+		<span> <h2>Contenido</h2> </span>
+		<input type="text" id="content" placeholder="Contenido del post" name="content" required="true"/>
+	</label>
+
+	<input type="submit" value="Crear Post"/>
+</form>
+{% endblock %}

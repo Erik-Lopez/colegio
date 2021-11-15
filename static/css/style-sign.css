@@ -1,0 +1,44 @@
+.main {
+	width: 75%;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.sign-box {
+	width: 50%;
+	margin: auto;
+	padding: 30px;
+	background-color: darkgrey;
+	box-shadow: 0 5px 10px 5px grey;
+}
+
+.sign-box h1 {
+	font-size: 3em;
+}
+.sign-box h2 {
+	font-size: 2em;
+}
+
+.sign-box h1,h2 {
+	text-align: center;
+
+}
+.sign-box label input {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+}
+.sign-box > input {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width: 100px;
+	height: 50px;
+}
+
+.error {
+	color: red;
+	text-decoration: underline;
+}

@@ -15,6 +15,7 @@ from clubs.models import Club
 class BlogPost(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
+    description = models.CharField(max_length=60)
 
     author_id = models.ForeignKey(User, null=True, blank=False, on_delete=models.SET_NULL)
 #    tags_id   = models.ForeignKey(Tag, on_delete=models.SET_NULL)

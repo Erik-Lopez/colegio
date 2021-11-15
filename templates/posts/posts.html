@@ -6,6 +6,8 @@
 {% endblock %}
 
 {% block container %}
+<a href="create/" class="add-button">Crear Post</a>
+
 {% load static %}
 {% for post in posts %}
 	<a href="{{ post.id }}" class="main__post--link">

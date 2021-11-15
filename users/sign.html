@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_content %}
+	<title>{% block title %}</title>
+	<link rel="stylesheet" href="{% static 'css/style-sign.css' %}"/>
+{% endblock %}
+
+{% block container %}
+	<form method='POST' action="." class="sign-box">
+		{% csrf_token %}
+		<h1>{% header %}</h1>
+		<label for="nombre">
+			<span> <h2>Nombre</h2> </span>
+			<input type="text" id="nombre" placeholder="Tu nombre" name="username" required="true"/>
+		</label>
+		<label for="pass">
+			<span> <h2>Contraseña</h2> </span>
+			<input type="password" id="pass" placeholder="Tu contraseña" name="password" required="true"/>
+		</label>
+		{% if error %}		
+			<em class="error">Algo has puesto mal. ¿Te has <a href="register">registrado</a>?</em>
+		{% endif %}
+	</form>
+{% endblock %}

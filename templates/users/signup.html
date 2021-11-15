@@ -1,0 +1,11 @@
+{% extends "users/sign.html" %}
+{% load static %}
+
+{% block title %}Registrarse{% endblock %}
+{% block optional %}
+	{% csrf_token %}
+	<label for="pass">
+		<span> <h2>Confirmar Contraseña</h2> </span>
+		<input type="password" id="pass" placeholder="Repite tu contraseña" name="password_confirmation" required="true"/>
+	</label>
+{% endblock %}
