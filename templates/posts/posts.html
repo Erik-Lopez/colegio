@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block head_content %}
-<title>The Torrente Times</title>
-
+<title>The Torrente Times</title>n
 {% endblock %}
 
 {% block container %}
@@ -10,7 +9,7 @@
 
 {% load static %}
 {% for post in posts %}
-	<a href="{{ post.id }}" class="main__post--link">
+	<a href="{{ post.id }}/" class="main__post--link">
 	<article class="main__post">
 		<div class="post__decoration">
 			<div class="post__decoration--line"></div>

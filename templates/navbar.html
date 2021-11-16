@@ -1,15 +1,16 @@
 {% load static %}
 <header id="barra">
 	<div id="barra__parte-izquierda">
-		<img src={% static "img/colegio_dark.png" %}>
+		<a href="{% url 'posts' %}"><img src={% static "img/colegio_dark.png" %}></a>
 	</div>
 	<div id="barra__parte-derecha">
 		<nav id="parte-derecha__links">
 			<ul>
-				<li><a href="periodico">Periódico</li>
-				<li><a href="discord">Discord</a></li>
-				<li><a href="deberes">Deberes</a></li>
-				<li><a href="horarios">Horarios</a></li>
+				{% if user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">LogOut</a></li>
+				{% else %}
+					<li><a href="{% url 'login' %}">Login</a></li>	
+				{% endif %}
 			</ul>
 		</nav>
 	</div>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+<title>The Torrente Times</title>
+{% endblock %}
+
+{% block container %}
+{% load static %}
+<h1>{{blogpost.title}}</h1>
+<p> <i>{{blogpost.description}}</i> </p>
+<p>{{blogpost.content}}</p>
+<p> <i>{{blogpost.author_id}}</i> </p>
+{% endblock %}

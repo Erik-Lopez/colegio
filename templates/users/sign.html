@@ -25,6 +25,9 @@
 
 		{% if error %}		
 			<em class="error">{{error}}</em>
+			{% if title == "Iniciar Sesión" %}
+				<a href={% url 'signup' %}>Registrarse</a>
+			{% endif %}
 		{% endif %}
 	</form>
 {% endblock %}

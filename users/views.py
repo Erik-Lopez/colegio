@@ -22,7 +22,7 @@ def login_view(request):
             login(request, user)
             return redirect('posts')
         else:
-            return render(request, 'users/login.html', {'title': 'Iniciar Sesión', 'error': "Credenciales inválidas."})
+            return render(request, 'users/login.html', {'title': 'Iniciar Sesión', 'error': "Credenciales inválidas. ¿Te has registrado?"})
     return render(request, 'users/login.html', {'title': 'Iniciar Sesión'})
 
 @login_required
@@ -51,7 +51,4 @@ def signup(request):
     return render(request, 'users/signup.html', {'title': 'Registrarse'})
 
 def show_users(request):
-    pass
-
-def create_user(request):
     pass

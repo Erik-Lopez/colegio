@@ -6,7 +6,7 @@ from posts.models import BlogPost
 
 # Create your views here.
 
-def show_posts(request):
+def show_posts(request, post_id=0):
     # Get a list of the nth most recent posts from the database
     # Build the basic structure of the page
     # In the main tag, include those posts formatted
@@ -15,9 +15,13 @@ def show_posts(request):
 #            {'title': 'titulo', 'description': 'descripcion', 'author': 'autor', 'id': '1'},
 #            {'title': 'titulo2', 'description': 'descripcion2', 'author': 'autor2', 'id': '2'}
 #    ]
-    blogposts = BlogPost.objects.all()
-
-    return render(request, 'posts/posts.html', {'posts': blogposts})
+#    blogposts = BlogPost.objects.all()
+    if post_id == 0:
+        blogposts = BlogPost.objects.order_by('-posted_at')
+        return render(request, 'posts/posts.html', {'posts': blogposts})
+    else:
+        blogpost = BlogPost.objects.get(pk=post_id)
+        return render(request, 'posts/post.html', {'blogpost': blogpost})
 
 def create_post(request):
     # Receive the data to create a post from a form
@@ -35,7 +39,7 @@ def create_post(request):
         blogpost.save()
         post_id = blogpost.pk
 
-        return redirect('posts/{}'.format(post_id))
+        return redirect('posts', post_id=post_id)
     return render(request, 'posts/create_post.html')
 
 
