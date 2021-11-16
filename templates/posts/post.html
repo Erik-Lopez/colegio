@@ -6,8 +6,16 @@
 
 {% block container %}
 {% load static %}
+
 <h1>{{blogpost.title}}</h1>
+
 <p> <i>{{blogpost.description}}</i> </p>
 <p>{{blogpost.content}}</p>
+
+{% if blogpost.author_id %}
 <p> <i>{{blogpost.author_id}}</i> </p>
+{% else %}
+<p> <i>Anónimo</i> </p>
+{% endif %}
+
 {% endblock %}

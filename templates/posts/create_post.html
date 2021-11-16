@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block head_content %}
 <title>Crear Post</title>
+<link rel="stylesheet" href="{% static 'css/posts/create_post.css' %}"/>
 {% endblock %}
 
 {% block container %}
-<form method="POST" action="." >
+<form method="POST" action="." id="form">
 	{% csrf_token %}
 	<h1>Crear Post</h1>
 	<label for="title">
@@ -18,7 +20,7 @@
 	</label>
 	<label for="content">
 		<span> <h2>Contenido</h2> </span>
-		<input type="text" id="content" placeholder="Contenido del post" name="content" required="true"/>
+		<textarea id="content" placeholder="Contenido del post" name="content" cols="40" rows="40" required="true"></textarea>
 	</label>
 
 	<input type="submit" value="Crear Post"/>
