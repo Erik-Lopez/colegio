@@ -30,9 +30,10 @@
 	margin: 0;
 }
 
-/*.main__post--link {
+.main__post--link {
 	color: black;
 	transition: 0.25s;
+	display: block;
 }
 .main__post--link:hover {
 	color: blue;
@@ -40,4 +41,25 @@
 }
 .main__post--link:active {
 	color:yellow;
-}*/
+}
+.add-button {
+	display: block;
+	text-align: center;
+	color: #0f1011;
+}
+.add-button svg {
+	fill: grey;
+	transition: 0.25s;
+}
+.add-button svg:hover path {
+	fill: lightgrey;
+}
+.add-button svg:active path {
+	fill: white;
+}
+
+.delete {
+	margin: 16px;
+	float: right;
+	vertical-align: center;
+}

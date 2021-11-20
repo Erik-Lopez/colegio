@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest
+from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -54,8 +54,9 @@ def show_users(request, user_id = 0):
     if user_id == 0:
         profs = Profile.objects.order_by('-created_at')
         return render(request, 'users/users.html', {'profs': profs})
+
     try:
-        prof = Profile.objects.get(pk=user_id)
+        prof = User.objects.get(pk=user_id)
         return render(request, 'users/user.html', {'prof': prof})
     except:
-        return HttpResponse("El post no existe")
+       return HttpResponse("El usuario no existe")
