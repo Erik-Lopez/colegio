@@ -20,8 +20,8 @@
 </a>
 
 {% for post in posts %}
-	<a href="{{ post.id }}/" class="main__post--link">
-		<article class="main__post">
+	<article class="main__post">
+		<a href="{{ post.id }}/" class="main__post--link">
 			<div class="post__decoration">
 				<div class="post__decoration--line"></div>
 				<img src="{% static 'img/post.png' %}"/>
@@ -30,31 +30,34 @@
 				<h1>{{ post.title }}</h1>
 				<p>{{ post.description }}</p>
 			</div>
+
+		</a>
+		<div class="post-info">
 			{% if post.author_id is None %}
-				<div class="authors">
+				<div class="post-info__authors">
 					<p>Anónimo</p>
 				</div>
 			{% else %}
-				<div class="authors">
+				<div class="post-info__authors">
 					<p>{{ post.author_id }}</p>
 				</div>
 			{% endif %}
-
 			{% if user.is_authenticated %}
-				<a href="{% url 'delete_post' post_id=post.pk %}" class="delete">
+				<a href="{% url 'delete_post' post_id=post.pk %}" class="post-info__delete">
 				<svg 
 					xmlns="http://www.w3.org/2000/svg" 
 					role="img" 
-					width="1em" 
-					height="1em" 
+					width="3em" 
+					height="3em" 
 					viewBox="0 0 24 24"
 				>
 					<path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z" fill="currentColor"/><path d="M9 10h2v8H9zm4 0h2v8h-2z" fill="currentColor"/>
 				</svg>
 				</a>
 			{% endif %}
-		</article>
-	</a>
+		</div>
+		
+	</article>
 	<br>
 {% endfor %}
 {% endblock %}

@@ -22,18 +22,34 @@
 	height: 140px;
 	width: auto;
 }
-.authors {
-	margin: 16px;
+.post-info {
+	display: inline-grid;
+	vertical-align: middle;
 	float: right;
 }
-.authors p {
+.post-info__delete * {
+	margin: 16px;
+	float: right;
+	vertical-align: center;
+	color: white;
+	background-color: darkred;
+	border-radius: 10px;
+}
+
+
+.post-info__authors {
+	margin: 16px;
+	float: right;
+	display: block;
+}
+.post-info__authors p {
 	margin: 0;
 }
 
 .main__post--link {
 	color: black;
 	transition: 0.25s;
-	display: block;
+	display: inline-block;
 }
 .main__post--link:hover {
 	color: blue;
@@ -58,8 +74,3 @@
 	fill: white;
 }
 
-.delete {
-	margin: 16px;
-	float: right;
-	vertical-align: center;
-}
