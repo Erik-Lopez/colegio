@@ -3,7 +3,9 @@ from django.http import HttpResponse
 
 # Models
 from posts.models import BlogPost
-
+# Decorators
+from django.contrib.auth.decorators import login_required
+from users.decorators import unauthenticated_user, authenticated_user, allowed_groups
 # Create your views here.
 
 def show_posts(request, post_id=0):
@@ -11,17 +13,14 @@ def show_posts(request, post_id=0):
     # Build the basic structure of the page
     # In the main tag, include those posts formatted
 
-#    posts = [ 
-#            {'title': 'titulo', 'description': 'descripcion', 'author': 'autor', 'id': '1'},
-#            {'title': 'titulo2', 'description': 'descripcion2', 'author': 'autor2', 'id': '2'}
-#    ]
-#    blogposts = BlogPost.objects.all()
     if post_id == 0:
         blogposts = BlogPost.objects.order_by('-posted_at')
         return render(request, 'posts/posts.html', {'posts': blogposts})
-    else:
+    try:
         blogpost = BlogPost.objects.get(pk=post_id)
         return render(request, 'posts/post.html', {'blogpost': blogpost})
+    except:
+        return HttpResponse("El post no existe")
 
 def create_post(request):
     # Receive the data to create a post from a form
@@ -42,6 +41,15 @@ def create_post(request):
         return redirect('posts', post_id=post_id)
     return render(request, 'posts/create_post.html')
 
+@login_required(login_url='login')
+@allowed_groups(allowed_roles=['admin', 'super_admin'])
+def delete_post(request, post_id):
+    try:
+        blogpost = BlogPost.objects.get(pk=post_id) 
+        blogpost.delete()
+        return redirect('posts')
+    except:
+        return HttpResponse("El post no existe") 
 
 def update_post(request):
     # Get a post ID

@@ -1,0 +1,43 @@
+.main__post {
+	border-radius: 10px;
+	padding: 10px;
+	background: lightgrey;
+}
+
+.post__decoration, .post__content {
+	display: inline-block;		
+	vertical-align: middle;
+}
+
+.post__decoration--line {
+	display: inline-block;
+	border-left: 10px solid green;
+	height: 140px;
+	border-radius: 10px;
+	vertical-align: middle;
+}
+.post__decoration img {
+	vertical-align: middle;
+	display: inline-block;
+	height: 140px;
+	width: auto;
+}
+.authors {
+	margin: 16px;
+	float: right;
+}
+.authors p {
+	margin: 0;
+}
+
+/*.main__post--link {
+	color: black;
+	transition: 0.25s;
+}
+.main__post--link:hover {
+	color: blue;
+	opacity: 1;
+}
+.main__post--link:active {
+	color:yellow;
+}*/

@@ -1,28 +1,30 @@
 {% extends "base.html" %}
 
+{% load static %}
 {% block head_content %}
-<title>The Torrente Times</title>n
+<title>The Torrente Times</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/posts/posts.css' %}"/>
 {% endblock %}
 
 {% block container %}
 <a href="create/" class="add-button">Crear Post</a>
 
-{% load static %}
 {% for post in posts %}
 	<a href="{{ post.id }}/" class="main__post--link">
-	<article class="main__post">
-		<div class="post__decoration">
-			<div class="post__decoration--line"></div>
-			<img src="{% static 'img/post.png' %}"/>
-		</div>
-		<div class="post__content">
-			<h1>{{ post.title }}</h1>
-			<p>{{ post.description }}</p>
-		</div>
-		<div class="authors">
-			<p>{{ post.author }}</p>
-		</div>
-	</article>
+		<article class="main__post">
+			<div class="post__decoration">
+				<div class="post__decoration--line"></div>
+				<img src="{% static 'img/post.png' %}"/>
+			</div>
+			<div class="post__content">
+				<h1>{{ post.title }}</h1>
+				<p>{{ post.description }}</p>
+			</div>
+			<div class="authors">
+				<p>{{ post.author }}</p>
+			</div>
+			<a href="{% url 'delete_post' post_id=post.pk %}">Borrar post</a>
+		</article>
 	</a>
 	<br>
 {% endfor %}

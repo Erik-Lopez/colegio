@@ -50,5 +50,12 @@ def signup(request):
         return redirect('posts')
     return render(request, 'users/signup.html', {'title': 'Registrarse'})
 
-def show_users(request):
-    pass
+def show_users(request, user_id = 0):
+    if user_id == 0:
+        profs = Profile.objects.order_by('-created_at')
+        return render(request, 'users/users.html', {'profs': profs})
+    try:
+        prof = Profile.objects.get(pk=user_id)
+        return render(request, 'users/user.html', {'prof': prof})
+    except:
+        return HttpResponse("El post no existe")
