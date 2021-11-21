@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block container %}
-<form method="POST" action="." id="form" class="form">
+<form method="POST" enctype="multipart/form-data" action="." id="form" class="form">
 	{% csrf_token %}
 	<h1>Crear Club</h1>
 	<label for="name">

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 from clubs.models import Club
 
@@ -18,11 +19,12 @@ def create_club(request):
     if request.method == 'POST':
         name = request.POST["name"]
         owner = request.user
-        logo = request.POST["logo"] 
+        logo = request.FILES["logo"]
         description = request.POST["description"]
 
         club = Club(name=name, owner=owner, logo=logo)
         club.save()
+
         club_id = club.pk
         
         return redirect('clubs', club_id=club_id)
