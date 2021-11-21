@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block head_content %}
+<title>The Torrente Times</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/clubs/club.css' %}"/>
+{% endblock %}
+
+{% block container %}
+<h1 class="name">{{club.name}}</h1>
+
+<p class="description"><i>{{club.description}}</i></p>
+
+<p class="author"><i>Dueño del club: {{club.owner.username}}</i></p>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+<title>Crear Club</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/clubs/create_club.css' %}"/>
+{% endblock %}
+
+{% block container %}
+<form method="POST" action="." id="form" class="form">
+	{% csrf_token %}
+	<h1>Crear Club</h1>
+	<label for="name">
+		<span> <h2>Nombre</h2> </span>
+		<input type="text" id="name" placeholder="Nombre del club" name="name" required="true"/>
+	</label>
+	<label for="description">
+		<span> <h2>Descripción</h2> </span>
+		<input type="text" id="description" placeholder="Breve descripción del club" name="description" required="false"/>
+	</label>
+	<label for="logo">
+		<span> <h2>Logo del Club</h2> </span>
+		<input type="file" accept="image/png, image/jpeg" id="logo" name="logo" required="false"/>
+	</label>
+	
+	<input class="create-button" type="submit" value="CREAR"/>
+</form>
+{% endblock %}

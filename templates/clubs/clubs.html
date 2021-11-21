@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block head_content %}
+<title>The Torrente Times</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/clubs/clubs.css' %}"/>
+{% endblock %}
+
+{% block container %}
+<a href="create/" class="add-button">
+Añadir club
+</a>
+
+{% for club in clubs %}
+<article class="main__club">
+	<a href="{{ club.pk }}" class="main__club--link">
+		<div class="club__decoration">
+			<div class="club__decoration--line"></div>
+			<img src="{% static club.logo %}"/>
+		</div>
+		<div class="club__content">
+			<h1>{{ club.name }}</h1>
+			<p>{{ club.description }}</p>
+		</div>
+	</a>
+</article>
+<br/>
+{% endfor %}
+{% endblock %}
