@@ -1,4 +1,20 @@
+#form {
+	text-align: center;
+}
 #content {
-	height: 20vh;
-	width: 20vw;
+	height: 80%;
+	width: 100%;
+}
+#subtitle, #title {
+	width: 75%;
+	height: 2em;
+	text-align: center;
+}
+.create-button {
+	margin: 10px;
+	padding: 3px;
+
+	background-color: lightcyan;
+	border-radius: 10px;
+	font-size: 2em;
 }
