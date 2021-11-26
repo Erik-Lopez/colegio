@@ -22,6 +22,7 @@ class BlogPost(models.Model):
     club_id   = models.ForeignKey(Club, null=True, blank=True, on_delete=models.SET_NULL)
 
     posted_at = models.DateTimeField(auto_now_add=True)
+    thumbnail = models.ImageField(upload_to="posts/thumbnails/", blank=True, null=True)
 
     def __str__(self):
         return self.title

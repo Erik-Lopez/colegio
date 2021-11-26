@@ -36,11 +36,17 @@ def create_post(request):
         title = request.POST["title"]
         content = request.POST["content"]
         description = request.POST.dict()["description"]
+        if "thumbnail" in request.FILES:
+            thumbnail = request.FILES["thumbnail"]
+        else:
+            thumbnail = None
+
         if str(request.user) == 'AnonymousUser':
             author_id = None
         else:
             author_id = request.user
-        blogpost = BlogPost(title=title, description=description, content=content, author_id=author_id)
+
+        blogpost = BlogPost(title=title, thumbnail=thumbnail, description=description, content=content, author_id=author_id)
         blogpost.save()
         post_id = blogpost.pk
 

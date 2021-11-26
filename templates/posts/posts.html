@@ -23,8 +23,10 @@
 	<article class="main__post">
 		<a href="{{ post.id }}/" class="main__post--link">
 			<div class="post__decoration">
-				<div class="post__decoration--line"></div>
-				<img src="{% static 'img/post.png' %}"/>
+				<div class="post__decoration--line" style="border-left: 10px solid {{ post.club.color }}"></div>
+				{% if post.thumbnail %}
+					<img src="{{ post.thumbnail.url }}"/>
+				{% endif %}
 			</div>
 			<div class="post__content">
 				<h1>{{ post.title }}</h1>

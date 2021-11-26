@@ -53,3 +53,17 @@ def join_club(request, club_id):
     club.profile_set.add(request.user.profile) 
     club.save()
     return redirect('clubs', club_id=club_id)
+
+@login_required(login_url='login')
+def leave_club(request, club_id):
+    try:
+        club = Club.objects.get(pk=club_id)
+    except:
+        return HttpResponse("El club no existe")
+    if request.user == club.owner or request.user.profile not in club.profile_set.all():
+        return HttpResponse("<h1 style='text-align:center;'>NO PODÉS</h1>")
+
+    club.profile_set.remove(request.user.profile)
+    club.save()
+
+    return redirect('clubs', club_id=club_id)
