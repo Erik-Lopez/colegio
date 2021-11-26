@@ -1,3 +1,7 @@
 {% extends 'users/sign.html' %}
 {% load static %}
 {% csrf_token %}
+
+{% block optional %}
+	<em class="error">¿No tienes cuenta? <a href="{% url 'signup' %}">Regístrate</a></em>
+{% endblock %}
