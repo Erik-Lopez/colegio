@@ -95,8 +95,9 @@ def create_post(request):
     categories = Category.objects.all()
     
     user_clubs = None
-    if request.user.is_authenticated and request.user.profile.clubs.exists():
+    if request.user.is_authenticated and (request.user.profile.clubs.exists() or request.user.club_set.exists()):
         user_clubs = request.user.profile.clubs.all()
+        user_clubs = user_clubs|request.user.club_set.all()
     return render(request, 'posts/create_post.html', {'categories': categories, 'user_clubs': user_clubs})
 
 @login_required(login_url='login')

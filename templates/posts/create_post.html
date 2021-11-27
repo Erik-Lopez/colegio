@@ -33,6 +33,7 @@
 		<label for="club">
 			<span> <h1>Club</h1> </span>
 			<select name="club" id="club">
+				<option value="Ninguno">Ninguno</option>
 				{% for club in user_clubs %}
 					<option value="{{club.name}}">{{club.name}}</option>
 				{% endfor %}
