@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block container %}
-<form method="POST" action="." id="form">
+<form method="POST" enctype="multipart/form-data" action="." id="form">
 	{% csrf_token %}
 	<h1>Crear Post</h1>
 	<label for="title">
@@ -22,6 +22,11 @@
 		<span> <h2>Contenido</h2> </span>
 		<textarea id="content" placeholder="Contenido del post" name="content" cols="40" rows="40" required="true"></textarea>
 	</label>
+	{% for category in categories%}
+		<label for="caca">
+
+		</label>
+	{% endfor %}
 	<label for="thumbnail">
 		<span>Añade una imagen:</span>
 		<input type="file" accept="image/png, image/jpeg" id="thumbnail" name="thumbnail"/>

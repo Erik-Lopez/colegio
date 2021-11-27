@@ -36,6 +36,7 @@ def create_post(request):
         title = request.POST["title"]
         content = request.POST["content"]
         description = request.POST.dict()["description"]
+
         if "thumbnail" in request.FILES:
             thumbnail = request.FILES["thumbnail"]
         else:
