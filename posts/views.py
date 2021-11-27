@@ -89,9 +89,11 @@ def delete_post(request, post_id):
         group = request.user.groups.all()[0].name
         if group in ['admin', 'super_admin']:
             permission = True
-
-    if blogpost.author_id.pk == request.user.pk:
+    if request.user.is_staff:
         permission = True
+    if blogpost.author_id:
+        if blogpost.author_id.pk == request.user.pk:
+            permission = True
         
     if permission:
         blogpost.delete()

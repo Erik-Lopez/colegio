@@ -44,7 +44,7 @@
 					<p>{{ post.author_id }}</p>
 				</div>
 			{% endif %}
-			{% if user.pk == post.author_id.pk or user.groups in allowed_groups %}
+			{% if user.pk == post.author_id.pk or user.is_staff or user.groups in allowed_groups %}
 				<a href="{% url 'delete_post' post_id=post.pk %}" class="post-info__delete">
 				<svg 
 					xmlns="http://www.w3.org/2000/svg" 
