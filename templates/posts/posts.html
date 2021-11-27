@@ -45,6 +45,7 @@
 				</div>
 			{% endif %}
 			{% if user.pk == post.author_id.pk or user.is_staff or user.groups in allowed_groups %}
+				{% if user.is_authenticated %}
 				<a href="{% url 'delete_post' post_id=post.pk %}" class="post-info__delete">
 				<svg 
 					xmlns="http://www.w3.org/2000/svg" 
@@ -56,6 +57,7 @@
 					<path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z" fill="currentColor"/><path d="M9 10h2v8H9zm4 0h2v8h-2z" fill="currentColor"/>
 				</svg>
 				</a>
+				{% endif %}
 			{% endif %}
 		</div>
 		
