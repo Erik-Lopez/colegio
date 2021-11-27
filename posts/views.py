@@ -12,6 +12,17 @@ from django.contrib.auth.decorators import login_required
 from users.decorators import unauthenticated_user, authenticated_user, allowed_groups
 # Create your views here.
 
+def hex_sum(a, b):
+    """a y b vienen en formato '#abcdef', son sumadas y se sacan en mismo formato"""
+    dec_result = int(a[1:], 16) + int(b[1:], 16)
+    hex_result = hex(dec_result)
+
+    if int(hex_result[2:], 16) > 0xFFFFFF:
+        hex_result = 0xFFFFFF
+
+    hex_result = "#" + hex_result[2:]
+    return hex_result
+
 def show_posts(request, post_id=0):
     # Get a list of the nth most recent posts from the database
     # Build the basic structure of the page
@@ -24,14 +35,23 @@ def show_posts(request, post_id=0):
         colors = []
 
         for blogpost in blogposts:
-#            colors.append([category.color for category in blogpost.category_set.all() if blogpost.category_set.exists()])
+            local_colors = []
             if blogpost.category_set.exists():
                 for category in blogpost.category_set.all():
-                    colors.append([category.color])
+                    local_colors.append(category.color)
             else:
-                colors.append(["#000000"])
-                    
-        true_colors = reduce(lambda a,b: a+b, colors) 
+                local_colors.append("#000000")
+            colors.append(local_colors)
+
+        true_colors = []
+        for color_list in colors:
+            if type(color_list) == str:
+                true_colors.append(color_list)
+            elif type(color_list) == list and color_list:
+                true_colors.append(reduce(lambda a,b: hex_sum(a,b), color_list))
+            else:
+                true_colors.append("#000000")
+
         posts_and_colors = zip(blogposts, true_colors)
         return render(request, 'posts/posts.html', {'posts': blogposts, 'allowed_groups': ['admin', 'super_admin'], 'posts_and_colors': posts_and_colors})
 
