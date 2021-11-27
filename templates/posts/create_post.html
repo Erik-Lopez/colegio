@@ -29,6 +29,17 @@
 		</label>
 	{% endfor %}
 	<br/>
+	{% if user_clubs %}
+		<label for="club">
+			<span> <h1>Club</h1> </span>
+			<select name="club" id="club">
+				{% for club in user_clubs %}
+					<option value="{{club.name}}">{{club.name}}</option>
+				{% endfor %}
+			</select>
+		</label>
+		<br/>
+	{% endif %}
 	<label for="thumbnail">
 		<span>Añade una imagen:</span>
 		<input type="file" accept="image/png, image/jpeg" id="thumbnail" name="thumbnail"/>

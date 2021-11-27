@@ -93,7 +93,11 @@ def create_post(request):
 
         return redirect('posts', post_id=post_id)
     categories = Category.objects.all()
-    return render(request, 'posts/create_post.html', {'categories': categories})
+    
+    user_clubs = None
+    if request.user.is_authenticated and request.user.profile.clubs.exists():
+        user_clubs = request.user.profile.clubs.all()
+    return render(request, 'posts/create_post.html', {'categories': categories, 'user_clubs': user_clubs})
 
 @login_required(login_url='login')
 #@allowed_groups(allowed_roles=['admin', 'super_admin'])
