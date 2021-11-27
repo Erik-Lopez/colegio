@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+# Python
+from functools import reduce
+
 # Models
 from posts.models import BlogPost
+from categories.models import Category
 # Decorators
 from django.contrib.auth.decorators import login_required
 from users.decorators import unauthenticated_user, authenticated_user, allowed_groups
@@ -13,15 +17,24 @@ def show_posts(request, post_id=0):
     # Build the basic structure of the page
     # In the main tag, include those posts formatted
     user = None
-#    if request.user.is_authenticated and request.user.groups.exists():
-#        user = {
-#            "user_id": request.user.pk,
-#            "groups": request.user.groups.all()[0].name
-#        }
 
     if post_id == 0:
         blogposts = BlogPost.objects.order_by('-posted_at')
-        return render(request, 'posts/posts.html', {'posts': blogposts, 'allowed_groups': ['admin', 'super_admin']})
+        categories = [blogpost.category_set.all() for blogpost in blogposts]
+        colors = []
+
+        for blogpost in blogposts:
+#            colors.append([category.color for category in blogpost.category_set.all() if blogpost.category_set.exists()])
+            if blogpost.category_set.exists():
+                for category in blogpost.category_set.all():
+                    colors.append([category.color])
+            else:
+                colors.append(["#000000"])
+                    
+        true_colors = reduce(lambda a,b: a+b, colors) 
+        posts_and_colors = zip(blogposts, true_colors)
+        return render(request, 'posts/posts.html', {'posts': blogposts, 'allowed_groups': ['admin', 'super_admin'], 'posts_and_colors': posts_and_colors})
+
     try:
         blogpost = BlogPost.objects.get(pk=post_id)
         return render(request, 'posts/post.html', {'blogpost': blogpost})
@@ -47,12 +60,20 @@ def create_post(request):
         else:
             author_id = request.user
 
-        blogpost = BlogPost(title=title, thumbnail=thumbnail, description=description, content=content, author_id=author_id)
+        blogpost = BlogPost.objects.create(title=title, thumbnail=thumbnail, description=description, content=content, author_id=author_id)
+
+        for key in request.POST.keys():
+            if not key.startswith("category_"):
+                continue
+            category = Category.objects.get(pk=key[9:])
+            blogpost.category_set.add(category)
         blogpost.save()
+
         post_id = blogpost.pk
 
         return redirect('posts', post_id=post_id)
-    return render(request, 'posts/create_post.html')
+    categories = Category.objects.all()
+    return render(request, 'posts/create_post.html', {'categories': categories})
 
 @login_required(login_url='login')
 #@allowed_groups(allowed_roles=['admin', 'super_admin'])

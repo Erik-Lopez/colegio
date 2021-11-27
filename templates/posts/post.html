@@ -8,15 +8,17 @@
 
 {% block container %}
 
-<h1 class="title">{{blogpost.title}}</h1>
+	<h1 class="title">{{blogpost.title}}</h1>
+	<p class="subtitle"> <i>{{blogpost.description}}</i> </p>
 
-<p class="subtitle"> <i>{{blogpost.description}}</i> </p>
-<p class="content">{{blogpost.content}}</p>
+	{% autoescape off %}
+		<p class="content">{{blogpost.content}}</p>
+	{% endautoescape %}
 
 {% if blogpost.author_id %}
-<i class="author">{{blogpost.author_id}}</i>
+	<i class="author">{{blogpost.author_id}}</i>
 {% else %}
-<i class="author">Anónimo</i> 
+	<i class="author">Anónimo</i> 
 {% endif %}
 
 {% endblock %}

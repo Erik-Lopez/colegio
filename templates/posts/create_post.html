@@ -22,11 +22,13 @@
 		<span> <h2>Contenido</h2> </span>
 		<textarea id="content" placeholder="Contenido del post" name="content" cols="40" rows="40" required="true"></textarea>
 	</label>
-	{% for category in categories%}
-		<label for="caca">
-
+	{% for category in categories %}
+		<label for="category_{{ forloop.counter }}">
+			<span>{{category.name}}</span>
+			<input type="checkbox"id="category_{{ forloop.counter }}" name="category_{{ forloop.counter }}"/>
 		</label>
 	{% endfor %}
+	<br/>
 	<label for="thumbnail">
 		<span>Añade una imagen:</span>
 		<input type="file" accept="image/png, image/jpeg" id="thumbnail" name="thumbnail"/>

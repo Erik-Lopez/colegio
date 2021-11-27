@@ -5,4 +5,5 @@ from posts.models import BlogPost
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
+    color = models.CharField(max_length=7)
     posts = models.ManyToManyField(BlogPost)

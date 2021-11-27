@@ -11,7 +11,7 @@
 
 .post__decoration--line {
 	display: inline-block;
-	border-left: 10px solid green;
+/*	border-left: 10px solid green;*/
 	height: 140px;
 	border-radius: 10px;
 	vertical-align: middle;
