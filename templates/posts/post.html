@@ -21,4 +21,10 @@
 	<i class="author">Anónimo</i> 
 {% endif %}
 
+<hr/>
+
+{% for comment in comments %}
+	{{comment.content}}
+{% endfor %}
+
 {% endblock %}
