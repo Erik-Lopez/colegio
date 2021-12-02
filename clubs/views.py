@@ -10,7 +10,11 @@ def show_clubs(request, club_id=0):
         return render(request, 'clubs/clubs.html', {'clubs': clubs})
     try:
         club = Club.objects.get(pk=club_id)
-        return render(request, 'clubs/club.html', {'club': club})
+        user_in_club = False
+        if request.user.is_authenticated:
+            if club in request.user.profile.clubs.all() or club.owner == request.user:
+                user_in_club = True
+        return render(request, 'clubs/club.html', {'club': club, 'user_in_club': user_in_club})
     except:
         return HttpResponse("El club no existe")
 
