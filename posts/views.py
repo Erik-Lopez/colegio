@@ -58,7 +58,7 @@ def show_posts(request, post_id=0):
     try:
         blogpost = BlogPost.objects.get(pk=post_id)
         comments = None
-        if blogpost.comment_set:
+        if blogpost.comment_set.exists():
             comments = blogpost.comment_set.all()
         return render(request, 'posts/post.html', {'blogpost': blogpost, 'comments': comments})
     except:

@@ -4,3 +4,10 @@
 .content {
 	white-space: pre-line;
 }
+.comment-creator textarea {
+	width: 50vh;
+	height: 20vh;
+}
+.comment b, .comment p {
+	display: inline;
+}
