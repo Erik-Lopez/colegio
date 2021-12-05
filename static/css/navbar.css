@@ -1,12 +1,6 @@
-body {
-	margin: 0;
-	padding: 0;
-	background-color: darkgrey;
-}
-
 #barra {
-	box-shadow: 0 5px 10px 5px grey;
-	background-color: #2e2e33;
+/*	box-shadow: 0 5px 10px 5px #5e4b5b;*/
+	background-color: #a16574;
 }
 #barra__parte-derecha,
 #barra__parte-izquierda {
