@@ -1,12 +1,24 @@
 .main {
 	text-align: center;
+	color: var(--secondary-color);
 }
 .content {
 	white-space: pre-line;
 }
+.comment-separator {
+	color: var(--secondary-color);
+}
 .comment-creator textarea {
 	width: 50vh;
 	height: 20vh;
+	margin: 0;
+	padding: var(--roundedness);
+
+	color: var(--accent-color);
+	border-radius: var(--roundedness);
+	background-color: var(--secondary-color);
+	outline: none;
+	border: none;
 }
 .comment b, .comment p {
 	display: inline;

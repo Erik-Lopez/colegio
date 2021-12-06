@@ -1,39 +1,46 @@
-#barra {
-/*	box-shadow: 0 5px 10px 5px #5e4b5b;*/
-	background-color: #a16574;
-}
-#barra__parte-derecha,
-#barra__parte-izquierda {
-	display: inline-block;
-	width: 49.5vw;
-	vertical-align: middle;
-}
-#barra__parte-derecha {
-	text-align: center;
-}
-
-#parte-derecha__links ul {
+.navbar, .navbar ul {
+	height: 20vh;
+	background-color: var(--secondary-color);
 	margin: 0;
 	padding: 0;
+	display: flex;
+	align-items: center;
 }
-#parte-derecha__links li {
-	display: inline-block;
-	padding: 2px;
-	align: left;
-
-	text-decoration: none;
-/*	background-color: #0f1011;*/
-	font-size: 3em;
+.navbar__element/*, .navbar__logo img */{
+	height: 100%; 
 }
-#parte-derecha__links li a {
+.navbar__element a img {
+	margin-top: 25%;
+}
+.navbar__element a {
 	color: grey;
 	transition: 0.25s;
 }
-#parte-derecha__links li a:hover {
+.navbar > a,
+.navbar > a > img {
+	margin-left: 3%;
+	height: 90%;
+}
+.navbar__element a img{
+	text-decoration: none;
+	font-size: 3rem;
+	padding: 2px;
+	height: 100%;
+}
+.navbar ul {
+	list-style: none;
+	position: absolute;
+	right: 0;
+}
+.navbar ul:not(:first-child) a img {
+	height: 50%;
+	vertical-align: middle;
+}
+
+.navbar__element a:hover {
 	color: white;
 }
-#parte-derecha__links li::after {
+.navbar__element a::after {
 	content: "";
 	padding-right: 10px;
 }
-

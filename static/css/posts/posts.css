@@ -1,7 +1,7 @@
 .main__post {
-	border-radius: 10px;
-	padding: 10px;
-	background: #a16574;
+	border-radius: var(--roundedness);
+	padding: var(--roundedness);
+	background: var(--accent-color);
 }
 
 .post__decoration, .post__content {
@@ -11,7 +11,6 @@
 
 .post__decoration--line {
 	display: inline-block;
-/*	border-left: 10px solid green;*/
 	height: 140px;
 	border-radius: 10px;
 	vertical-align: middle;
@@ -46,21 +45,21 @@
 }
 
 .main__post--link {
-	color: black;
+	color: var(--secondary-color);
 	transition: 0.25s;
 	display: inline-block;
 }
 .main__post--link:hover {
-	color: blue;
+	color: var(--primary-color);
 	opacity: 1;
 }
 .main__post--link:active {
-	color:yellow;
+	color: var(--secondary-color);
 }
 .add-button {
 	display: block;
 	text-align: center;
-	color: #0f1011;
+	color: var(--accent-color);
 }
 .add-button svg {
 	fill: grey;

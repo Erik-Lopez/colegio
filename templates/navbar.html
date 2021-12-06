@@ -1,27 +1,34 @@
 {% load static %}
 <head>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}"
+	<link rel="stylesheet" type="text/css" href="{% static "css/variables.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/navbar.css" %}"/>
 </head>
-<header id="barra">
-	<div id="barra__parte-izquierda">
-		<a href="{% url 'posts' %}"><img src={% static "img/colegio_dark.svg" %}></a>
-	</div>
-	<div id="barra__parte-derecha">
-		<nav id="parte-derecha__links">
-			<ul>
-				{% if user.is_authenticated %}
-					<li><a href="{% url 'show_users' user_id=user.pk %}">
-					<img src="{% static 'img/profile_ico.svg' %}"
-					</a></li>
-				{% else %}
-					<li><a href="{% url 'login' %}">
-						<img src="{% static 'img/login_ico.svg' %}"/>
-					</a></li>
-				{% endif %}
-				<li><a href="{% url 'clubs' %}">
-					<img src="{% static 'img/clubs_ico.svg' %}"/>
-				</a></li>
-			</ul>
-		</nav>
-	</div>
+
+<header id="header">
+	<nav class="navbar">
+		<a class="navbar__logo" href="{% url "posts" %}">
+			<img src={% static "img/colegio_dark.svg" %}>
+		</a>
+		<ul>
+			{% if user.is_authenticated %}
+				<li class="navbar__element">
+					<a href="{% url "show_users" user_id=user.pk %}">
+						<img src="{% static "img/profile_ico.svg" %}"/>
+					</a>
+				</li>
+			{% else %}
+				<li class="navbar__element">
+					<a href="{% url "login" %}">
+						<img src="{% static "img/login_ico.svg" %}"/>
+					</a>
+				</li>
+			{% endif %}
+
+			<li class="navbar__element">
+				<a href="{% url "clubs" %}">
+					<img src="{% static "img/clubs_ico.svg" %}"/>
+				</a>
+			</li>
+		</ul>
+	</nav>
 </header>

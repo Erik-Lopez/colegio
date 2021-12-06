@@ -3,6 +3,7 @@
 {% load static %}
 {% block head_content %}
 <title>The Torrente Times</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/variables.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/posts/post.css' %}"/>
 {% endblock %}
 
@@ -21,7 +22,7 @@
 	<i class="author">Anónimo</i> 
 {% endif %}
 
-<hr/>
+<hr class="comment-separator"/>
 
 {% if user.is_authenticated%}
 <form method="POST" action="{% url 'create_comment' post_id=1 %}" id="form">
