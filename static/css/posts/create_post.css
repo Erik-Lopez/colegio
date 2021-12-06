@@ -10,11 +10,20 @@
 	height: 2em;
 	text-align: center;
 }
+.form-field *:not(h2){
+	background-color: var(--secondary-color);
+	color: var(--accent-color);
+	padding: var(--roundedness);
+	border-radius: var(--roundedness);
+	outline: none;
+	border: none;
+}
 .create-button {
 	margin: 10px;
-	padding: 3px;
+	padding: var(--roundedness);
 
-	background-color: lightcyan;
-	border-radius: 10px;
+	background-color: var(--accent-color);
+	color: var(--secondary-color);
+	border-radius: var(--roundedness);
 	font-size: 2em;
 }

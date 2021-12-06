@@ -23,3 +23,14 @@
 .comment b, .comment p {
 	display: inline;
 }
+
+.create-button {
+	border-radius: var(--roundedness);
+	padding: var(--roundedness);
+	margin: 10px;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	background-color: var(--accent-color);
+	color: var(--secondary-color);
+}

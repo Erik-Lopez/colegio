@@ -3,6 +3,7 @@
 
 {% block head_content %}
 <title>Crear Post</title>
+<link rel="stylesheet" href="{% static 'css/variables.css' %}"/>
 <link rel="stylesheet" href="{% static 'css/posts/create_post.css' %}"/>
 {% endblock %}
 
@@ -10,39 +11,45 @@
 <form method="POST" enctype="multipart/form-data" action="." id="form">
 	{% csrf_token %}
 	<h1>Crear Post</h1>
-	<label for="title">
-		<span> <h2>Título</h2> </span>
+	<label for="title" class="form-field">
+		<h2>Título</h2>
 		<input type="text" id="title" placeholder="Título del post" name="title" required="true"/>
 	</label>
-	<label for="description">
-		<span> <h2>Subtítulo</h2> </span>
+	<label for="description" class="form-field">
+		<h2>Subtítulo</h2>
 		<input type="text" id="subtitle" placeholder="Breve descripción del post" name="description" required="true"/>
 	</label>
-	<label for="content">
-		<span> <h2>Contenido</h2> </span>
+	<label for="content" class="form-field">
+		<h2>Contenido</h2>
 		<textarea id="content" placeholder="Contenido del post" name="content" cols="40" rows="40" required="true"></textarea>
 	</label>
+
 	{% for category in categories %}
-		<label for="category_{{ forloop.counter }}">
+		<label for="category_{{ forloop.counter }}" class="category">
 			<span>{{category.name}}</span>
 			<input type="checkbox"id="category_{{ forloop.counter }}" name="category_{{ forloop.counter }}"/>
 		</label>
 	{% endfor %}
+
 	<br/>
+
 	{% if user_clubs %}
 		<label for="club">
-			<span> <h1>Club</h1> </span>
+			<h1>Club</h1>
 			<select name="club" id="club">
 				<option value="Ninguno">Ninguno</option>
+
 				{% for club in user_clubs %}
 					<option value="{{club.name}}">{{club.name}}</option>
 				{% endfor %}
+
 			</select>
 		</label>
 		<br/>
 	{% endif %}
+
 	<label for="thumbnail">
-		<span>Añade una imagen:</span>
+		<h1>Imagen</h1>
 		<input type="file" accept="image/png, image/jpeg" id="thumbnail" name="thumbnail"/>
 		<br/>
 	</label>
