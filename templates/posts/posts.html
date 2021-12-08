@@ -9,7 +9,7 @@
 
 {% block container %}
 <a href="create/" class="add-button">
-	<img src="{% static 'img/add_btn_ico.svg' %}"/>
+	<svg class="add-button__image" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 32 32"><path d="M16 4c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16S9.4 4 16 4m0-2C8.3 2 2 8.3 2 16s6.3 14 14 14s14-6.3 14-14S23.7 2 16 2z M24 15h-7V8h-2v7H8v2h7v7h2v-7h7z"/></svg>
 </a>
 
 {% for post,color in posts_and_colors %}
@@ -17,15 +17,14 @@
 		<a href="{{ post.id }}/" class="post__link">
 			<div class="post__decoration">
 				<div class="post__line" style="border-left: 10px solid {{ color }}"></div>
-				{% if post.thumbnail %}
-					<img src="{{ post.thumbnail.url }}" class="post__image"/>
-				{% endif %}
 			</div>
 			<div class="post__content">
 				<h1>{{ post.title }}</h1>
 				<p>{{ post.description }}</p>
 			</div>
-
+			{% if post.thumbnail %}
+				<img src="{{ post.thumbnail.url }}" class="post__image"/>
+			{% endif %}
 		</a>
 		<div class="post-info">
 			{% if post.author_id is None %}

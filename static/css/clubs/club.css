@@ -1,19 +1,25 @@
-body {
+.main {
 	text-align: center;
 }
-
 .join {
-	color: #2e2e33;
-	background-color: #808080;
-	padding: 10px;
+	color: var(--accent-color);
+	background-color: var(--accent-color);
 }
-.join a {
+.join__link {
+	color: var(--secondary-color);
 	text-decoration: none;
-	color: black;
 }
 
 .leave {
-	color: #2e2e33;
-	background-color: #808;
-	padding: 10px;
+	color: var(--secondary-color);
+	background-color: var(--secondary-color);
+}
+.leave__link {
+	text-decoration: none;
+	color: var(--accent-color);
+}
+
+.join, .leave {
+	padding: var(--roundedness);
+	border-radius: var(--roundedness);
 }

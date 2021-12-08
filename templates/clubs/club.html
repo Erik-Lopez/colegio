@@ -7,13 +7,13 @@
 {% endblock %}
 
 {% block container %}
-<h1 class="name">{{club.name}}</h1> 
+<h1 class="header">{{club.name}}</h1> 
 
-{% if user.is_authenticated%}
+{% if user.is_authenticated %}
 	{% if not user_in_club %}
-		<span class="join"><a href="{% url 'join_club' club_id=club.pk %}">UNIRSE</a></span>	
+		<span class="join"><a class="join__link" href="{% url 'join_club' club_id=club.pk %}">UNIRSE</a></span>	
 	{% else %}
-		<span class="leave"><a href="{% url 'leave_club' club_id=club.pk %}">DEJAR CLUB</a></span>
+		<span class="leave"><a class="leave__link" href="{% url 'leave_club' club_id=club.pk %}">DEJAR CLUB</a></span>
 	{% endif %}
 {% endif %}
 

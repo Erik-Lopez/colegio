@@ -16,9 +16,15 @@
 	vertical-align: middle;
 }
 .post__image {
+	border-radius: var(--roundedness);
 	vertical-align: middle;
 	display: inline-block;
 	height: 140px;
+	width: auto;
+
+	outline: 5px solid var(--secondary-color);
+	margin: 5px;
+	float: right;
 }
 .post-info {
 	display: inline-grid;
@@ -48,6 +54,7 @@
 	color: var(--secondary-color);
 	transition: 0.25s;
 	display: inline-block;
+	width: 80%;
 }
 .post__link:hover {
 	color: var(--primary-color);
@@ -60,15 +67,17 @@
 	display: block;
 	text-align: center;
 	color: var(--accent-color);
+	height: 10vh;
+	margin-bottom: 10px;
 }
-.add-button svg {
-	fill: grey;
+.add-button__image {
+	fill: var(--secondary-color);
 	transition: 0.25s;
+	height: 100%;
 }
-.add-button svg:hover path {
-	fill: lightgrey;
+.add-button:hover .add-button__image path {
+	fill: var(--accent-color);
 }
-.add-button svg:active path {
-	fill: white;
+.add-button:active .add-button__image path {
+	fill: var(--secondary-color);
 }
-

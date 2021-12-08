@@ -9,20 +9,20 @@
 {% block container %}
 <form method="POST" enctype="multipart/form-data" action="." id="form" class="form">
 	{% csrf_token %}
-	<h1>Crear Club</h1>
-	<label for="name">
-		<span> <h2>Nombre</h2> </span>
+	<h1 class="header">Crear Club</h1>
+	<label for="name" class="form__field">
+		<h2 class="header">Nombre</h2>
 		<input type="text" id="name" placeholder="Nombre del club" name="name" required="true"/>
 	</label>
-	<label for="description">
-		<span> <h2>Descripción</h2> </span>
+	<label for="description" class="form__field">
+		<h2 class="header">Descripción</h2>
 		<input type="text" id="description" placeholder="Breve descripción del club" name="description" required="false"/>
 	</label>
-	<label for="logo">
-		<span> <h2>Logo del Club</h2> </span>
+	<label for="logo" class="form__field">
+		<h2 class="header">Logo del Club</h2>
 		<input type="file" accept="image/png, image/jpeg" id="logo" name="logo" required="false"/>
 	</label>
-	
+	</br>
 	<input class="create-button" type="submit" value="CREAR"/>
 </form>
 {% endblock %}

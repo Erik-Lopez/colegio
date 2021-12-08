@@ -10,17 +10,17 @@
 {% block container %}
 <form method="POST" enctype="multipart/form-data" action="." id="form">
 	{% csrf_token %}
-	<h1>Crear Post</h1>
-	<label for="title" class="form-field">
-		<h2>Título</h2>
+	<h1 class="header">Crear Post</h1>
+	<label for="title" class="form__field">
+		<h2 class="header">Título</h2>
 		<input type="text" id="title" placeholder="Título del post" name="title" required="true"/>
 	</label>
-	<label for="description" class="form-field">
-		<h2>Subtítulo</h2>
+	<label for="description" class="form__field">
+		<h2 class="header">Subtítulo</h2>
 		<input type="text" id="subtitle" placeholder="Breve descripción del post" name="description" required="true"/>
 	</label>
-	<label for="content" class="form-field">
-		<h2>Contenido</h2>
+	<label for="content" class="form__field">
+		<h2 class="header">Contenido</h2>
 		<textarea id="content" placeholder="Contenido del post" name="content" cols="40" rows="40" required="true"></textarea>
 	</label>
 
@@ -35,7 +35,7 @@
 
 	{% if user_clubs %}
 		<label for="club">
-			<h1>Club</h1>
+			<h1 class="header">Club</h1>
 			<select name="club" id="club">
 				<option value="Ninguno">Ninguno</option>
 
@@ -49,7 +49,7 @@
 	{% endif %}
 
 	<label for="thumbnail" class="thumbnail">
-		<h1>Imagen</h1>
+		<h1 class="header">Imagen</h1>
 		<input type="file" accept="image/png, image/jpeg" id="thumbnail" name="thumbnail"/>
 		<br/>
 	</label>
