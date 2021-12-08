@@ -13,12 +13,12 @@
 </a>
 
 {% for post,color in posts_and_colors %}
-	<article class="main__post">
-		<a href="{{ post.id }}/" class="main__post--link">
+	<article class="post">
+		<a href="{{ post.id }}/" class="post__link">
 			<div class="post__decoration">
-				<div class="post__decoration--line" style="border-left: 10px solid {{ color }}"></div>
+				<div class="post__line" style="border-left: 10px solid {{ color }}"></div>
 				{% if post.thumbnail %}
-					<img src="{{ post.thumbnail.url }}"/>
+					<img src="{{ post.thumbnail.url }}" class="post__image"/>
 				{% endif %}
 			</div>
 			<div class="post__content">

@@ -1,3 +1,7 @@
+h1, h2, h3 {
+	color: var(--secondary-color);
+}
+
 #form {
 	text-align: center;
 }
@@ -10,9 +14,17 @@
 	height: 2em;
 	text-align: center;
 }
+
+.thumbnail input {
+	border: none;
+	border-radius: var(--roundedness);
+	color: var(--secondary-color);
+	background-color: var(--accent-color);
+	padding: var(--roundedness);
+}
 .form-field *:not(h2){
-	background-color: var(--secondary-color);
-	color: var(--accent-color);
+	background-color: var(--accent-color);
+	color: var(--secondary-color);
 	padding: var(--roundedness);
 	border-radius: var(--roundedness);
 	outline: none;
@@ -21,9 +33,10 @@
 .create-button {
 	margin: 10px;
 	padding: var(--roundedness);
+	cursor: pointer;
 
 	background-color: var(--accent-color);
 	color: var(--secondary-color);
 	border-radius: var(--roundedness);
-	font-size: 2em;
+	border: none;
 }

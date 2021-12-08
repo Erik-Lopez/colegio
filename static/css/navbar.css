@@ -6,41 +6,40 @@
 	display: flex;
 	align-items: center;
 }
-.navbar__element/*, .navbar__logo img */{
+.navbar__element, .navbar__link {
 	height: 100%; 
 }
-.navbar__element a img {
-	margin-top: 25%;
-}
-.navbar__element a {
-	color: grey;
+.navbar__link {
+	color: var(--primary-color);
 	transition: 0.25s;
 }
-.navbar > a,
-.navbar > a > img {
+.navbar__logo,
+.navbar__logo img {
 	margin-left: 3%;
 	height: 90%;
 }
-.navbar__element a img{
+.navbar__link svg{
+	pointer-events: none;
 	text-decoration: none;
 	font-size: 3rem;
 	padding: 2px;
 	height: 100%;
+	margin-top: 25%;
 }
 .navbar ul {
 	list-style: none;
 	position: absolute;
 	right: 0;
 }
-.navbar ul:not(:first-child) a img {
+.navbar ul:not(:first-child) a svg {
 	height: 50%;
 	vertical-align: middle;
 }
 
-.navbar__element a:hover {
-	color: white;
+.navbar__link:hover svg {	
+	background-color: red;
 }
-.navbar__element a::after {
+.navbar__link::after {
 	content: "";
 	padding-right: 10px;
 }

@@ -3,10 +3,17 @@ body {
 	padding: 0;
 	background-color: var(--primary-color);
 	font-size: 20px;
+	text-color: var(--secondary-color);
 }
 
 .main {
 	width: 75%;
 	margin: auto;
 	margin-top: 10px;
+}
+.header {
+	color: var(--secondary-color);
+}
+.centered {
+	text-align: center;
 }

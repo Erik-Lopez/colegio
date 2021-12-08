@@ -8,15 +8,16 @@
 
 {% block container %}
 <a href="create/" class="add-button">
-	<img src="{% static 'img/add_btn_ico.svg' %}"
+	<svg class="add-button__svg" xmlns="http://www.w3.org/2000/svg" role="img" width="5em" height="5em" viewBox="0 0 32 32">
+		<path d="M16 4c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16S9.4 4 16 4m0-2C8.3 2 2 8.3 2 16s6.3 14 14 14s14-6.3 14-14S23.7 2 16 2z M24 15h-7V8h-2v7H8v2h7v7h2v-7h7z" fill="currentColor"/>
+	</svg>
 </a>
 
 {% for club in clubs %}
-<article class="main__club">
-	<a href="{{ club.pk }}" class="main__club--link">
+<article class="club">
+	<a href="{{ club.pk }}" class="club__link">
 		<div class="club__decoration">
-			<div class="club__decoration--line"></div>
-			<img src="{{ club.logo.url }}" class="club__decoration--img"/>
+			<img class="club__image" src="{{ club.logo.url }}"/>
 		</div>
 		<div class="club__content">
 			<h1>{{ club.name }}</h1>

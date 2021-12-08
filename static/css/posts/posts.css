@@ -1,4 +1,4 @@
-.main__post {
+.post {
 	border-radius: var(--roundedness);
 	padding: var(--roundedness);
 	background: var(--accent-color);
@@ -9,13 +9,13 @@
 	vertical-align: middle;
 }
 
-.post__decoration--line {
+.post__line {
 	display: inline-block;
 	height: 140px;
 	border-radius: 10px;
 	vertical-align: middle;
 }
-.post__decoration img {
+.post__image {
 	vertical-align: middle;
 	display: inline-block;
 	height: 140px;
@@ -44,16 +44,16 @@
 	margin: 0;
 }
 
-.main__post--link {
+.post__link {
 	color: var(--secondary-color);
 	transition: 0.25s;
 	display: inline-block;
 }
-.main__post--link:hover {
+.post__link:hover {
 	color: var(--primary-color);
 	opacity: 1;
 }
-.main__post--link:active {
+.post__link:active {
 	color: var(--secondary-color);
 }
 .add-button {

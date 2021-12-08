@@ -1,0 +1,17 @@
+.logout {
+	display:flex;
+	justify-content: center;
+
+	text-decoration: none;
+	color: var(--secondary-color);
+}
+.logout:hover {
+	color: var(--accent-color);
+}
+.logout:active {
+	color: var(--secondary-color);
+}
+
+.logout__text {
+	margin: 0;
+}
