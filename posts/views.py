@@ -60,7 +60,7 @@ def show_posts(request, post_id=0):
         comments = None
         if blogpost.comment_set.exists():
             comments = blogpost.comment_set.all()
-        return render(request, 'posts/post.html', {'blogpost': blogpost, 'comments': comments})
+        return render(request, 'posts/post.html', {'blogpost': blogpost, 'comments': comments, 'post_id': post_id})
     except:
         return HttpResponse("El post no existe")
 
