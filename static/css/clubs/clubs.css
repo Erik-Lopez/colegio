@@ -33,7 +33,7 @@
 	text-align: center;
 	color: #0f1011;
 }
-.add-button svg {
+.add-button svg path {
 	fill: var(--secondary-color);
 	transition: 0.25s;
 }

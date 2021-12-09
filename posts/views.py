@@ -40,7 +40,7 @@ def show_posts(request, post_id=0):
                 for category in blogpost.category_set.all():
                     local_colors.append(category.color)
             else:
-                local_colors.append("#000000")
+                local_colors.append("#241d17")
             colors.append(local_colors)
 
         true_colors = []
