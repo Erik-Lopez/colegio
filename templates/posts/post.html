@@ -13,7 +13,7 @@
 	<p class="subtitle"> <i>{{blogpost.description}}</i> </p>
 
 	{% autoescape off %}
-		<p class="content">{{blogpost.content}}</p>
+		<p class="content">{{content}}</p>
 	{% endautoescape %}
 
 {% if blogpost.author_id %}
