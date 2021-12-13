@@ -1,12 +1,31 @@
-.main {
+.main, .comment-separator {
+	color: var(--secondary-color);
+}
+.subtitle, #form, h1 {
 	text-align: center;
-	color: var(--secondary-color);
+	padding-left: 0;
 }
-.content {
-	white-space: pre-line;
+.author { margin-right: 0; margin-left: auto; }
+h3 { padding-left: 10px; }
+h4 { padding-left: 20px; }
+h5 { padding-left: 30px; }
+h6 { padding-left: 40px; }
+p, code {
+	word-wrap: normal;
+	text-align: left;
+	padding-left: 60px;
 }
-.comment-separator {
-	color: var(--secondary-color);
+ul, ol {
+	word-wrap: normal;
+	text-align: left;
+	padding-left: 100px;
+}
+code {
+	box-decoration-break: clone;
+	width: 100%;
+	overflow: scroll;
+	word-wrap: normal;
+	padding-left: 70px;
 }
 .comment-creator textarea {
 	width: 50vh;
