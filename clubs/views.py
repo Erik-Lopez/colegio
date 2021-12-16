@@ -26,7 +26,7 @@ def create_club(request):
         logo = request.FILES["logo"]
         description = request.POST["description"]
 
-        club = Club(name=name, owner=owner, logo=logo)
+        club = Club(name=name, owner=owner, logo=logo, description=description)
         club.save()
 
         club_id = club.pk
