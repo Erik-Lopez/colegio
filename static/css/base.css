@@ -20,3 +20,7 @@ body {
 .centered {
 	text-align: center;
 }
+::selection {
+	background: var(--secondary-color);
+	color: var(--accent-color);
+}

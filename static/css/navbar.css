@@ -31,3 +31,6 @@
 	height: 100%;
 	display: inline-block;
 }
+.nav__menu-logo {
+	filter: sepia(1);
+}
